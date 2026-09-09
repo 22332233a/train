@@ -1,24 +1,32 @@
 {
   "name": "train-ticket",
   "version": "0.0.0",
-  "private": true,
   "type": "module",
+  "private": true,
+  "description": "Electron Train Ticket App",
+  "main": "electron/main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "electron:dev": "concurrently \"cross-env BROWSER=none npm run dev\" \"wait-on http://localhost:5173 && electron .\""
   },
-  "dependencies": {
-    "vue": "^3.5.28"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.4",
-    "gh-pages": "^6.3.0",
-    "vite": "^7.3.1",
-    "vite-plugin-vue-devtools": "^8.0.6"
-  },
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+    "@vitejs/plugin-vue": "^5.0.0", 
+    "concurrently": "^9.2.1",
+    "cross-env": "^7.0.3", 
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "gh-pages": "^6.0.0", 
+    "vite": "^5.0.0",
+    "vite-plugin-vue-devtools": "^7.0.0", 
+    "wait-on": "^7.2.0"
   }
 }
